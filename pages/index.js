@@ -29,18 +29,25 @@ const MeiaMaratonaRoss = () => {
 
   // Função para lidar com o voto em Outros
   const handleOutrosClick = () => {
+    // Aqui forçamos o erro/piada
     setStatus(2);
   };
 
-  // --- Estilos Inline para Garantir Cores e Fundo ---
+  // --- Estilos Inline CRÍTICOS para Garantir Cores e Fundo (Fallback) ---
   const containerStyle = {
     minHeight: '100vh',
-    backgroundColor: '#1f2937', // gray-900
+    backgroundColor: '#1f2937', // Garante o fundo escuro (gray-900)
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     padding: '1rem',
     fontFamily: 'Inter, sans-serif'
+  };
+
+  const cardStyle = {
+    backgroundColor: '#1f2937', // Garante o fundo escuro do card (gray-800)
+    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)',
+    borderTop: '8px solid #facc15', // Cor amarela para o topo (yellow-400)
   };
 
   // Renderiza os botões e a pergunta principal
@@ -131,7 +138,10 @@ const MeiaMaratonaRoss = () => {
     <div style={containerStyle}>
       
       {/* Card central, responsivo e com design visual */}
-      <div className="w-full max-w-2xl bg-gray-800 p-8 sm:p-12 rounded-2xl shadow-2xl flex flex-col items-center border-t-8 border-yellow-400/80" style={{ backgroundColor: '#1f2937' }}>
+      <div 
+        className="w-full max-w-2xl p-8 sm:p-12 rounded-2xl shadow-2xl flex flex-col items-center" 
+        style={cardStyle}
+      >
         
         <h1 className="text-xl sm:text-2xl font-light text-yellow-400 mb-6">
             Meia Maratona 21K - Jampa 🏃‍♀️
